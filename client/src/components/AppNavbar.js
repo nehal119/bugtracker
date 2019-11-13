@@ -5,8 +5,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
   NavLink,
+  NavItem,
   Container
 } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -36,7 +36,7 @@ class AppNavbar extends Component {
     const authLinks = (
       <Fragment>
         <NavItem>
-              <NavLink href="#">Dashboard</NavLink>
+              <NavLink href="/dashboard/:user">Dashboard</NavLink>
         </NavItem>
         {/* <NavItem>
           <span className='navbar-text mr-3'>
@@ -61,20 +61,21 @@ class AppNavbar extends Component {
     );
 
     return (
-      <div>
-        <Navbar color='light' light expand='sm' className='mb-5'>
+ /* <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" 
+ color-on-scroll="100" id="sectionsNav"></nav> */
+        <Navbar expand='sm' className='navbar navbar-light fixed-top' style={{backgroundColor: "#FFE4C4"}}>
             <NavbarBrand href='/'>BugTracker</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className='mr-auto' navbar>
                 <NavItem>
-                    <NavLink href="#">Home</NavLink>
+                    <NavLink href="/">Home</NavLink>
                 </NavItem>
                   <NavItem>
-                      <NavLink href="#">Feed</NavLink>
+                      <NavLink href="/feed">Feed</NavLink>
                   </NavItem>
                   <NavItem>
-                      <NavLink href="#">Projects</NavLink>
+                      <NavLink href="/projects">Projects</NavLink>
                   </NavItem>
               </Nav>
               <Nav className='ml-auto' navbar>
@@ -83,7 +84,6 @@ class AppNavbar extends Component {
             </Collapse>
          
         </Navbar>
-      </div>
     );
   }
 }

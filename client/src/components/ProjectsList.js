@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
-class BugsList extends Component {
+class ProjectsList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
@@ -28,18 +28,19 @@ class BugsList extends Component {
           <TransitionGroup className='shopping-list'>
             {items.map(({ _id, name, reporter, date }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
-                <ListGroupItem>
+                <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE0C4"}}>
+                 <h3><bold> {name}</bold> </h3>
+                 <p>Started on: {date}</p> 
                   {this.props.isAuthenticated ? (
                     <Button
                       className='remove-btn mr-5'
-                      color='info'
+                      color='dark'
                       size='sm'
                       onClick={this.onDeleteClick.bind(this, _id)}
                     >
-                      {name}
+                      More Info
                     </Button>
                   ) : null}
-                  {date}
                 </ListGroupItem>
               </CSSTransition>
             ))}
@@ -58,4 +59,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getItems, deleteItem }
-)(BugsList);
+)(ProjectsList);

@@ -7,7 +7,7 @@ const ItemSchema = new Schema({
     type: String,
     required: true
   },
-  reporter: {
+  coordinator: {
     type: String,
     required: true
   },

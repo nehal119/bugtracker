@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import AppNavbar from './components/AppNavbar';
-import BugsList from './components/BugsList';
-import ItemModal from './components/ItemModal';
-import { Container } from 'reactstrap';
-
-import { Provider } from 'react-redux';
-import store from './store';
-import { loadUser } from './actions/authActions';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Projects from './Projects';
+import Home from './Home';
+import Feed from './Feed';
 import './App.css';
 
-class App extends Component {
+import store from './store';
+import { loadUser } from './actions/authActions';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+class Root extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
   }
@@ -19,16 +18,16 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className='App'>
-          <AppNavbar />
-          <Container>
-            <ItemModal />
-            <BugsList />
-          </Container>
-        </div>
+      <Router>
+        <Switch>
+            <Route exact path="/projects" component={Projects} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Feed" component={Feed} />
+        </Switch>
+      </Router>
       </Provider>
     );
   }
 }
 
-export default App;
+export default Root;

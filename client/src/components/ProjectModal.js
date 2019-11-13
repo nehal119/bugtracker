@@ -13,11 +13,11 @@ import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
-class ItemModal extends Component {
+class ProjectModal extends Component {
   state = {
     modal: false,
     name: '',
-    reporter: '',
+    coordinator: '',
     description: ''
   };
 
@@ -40,7 +40,7 @@ class ItemModal extends Component {
 
     const newItem = {
       name: this.state.name,
-      reporter: this.state.reporter,
+      coordinator: this.state.coordinator,
       description: this.state.description
     };
 
@@ -53,38 +53,38 @@ class ItemModal extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{marginTop: "5rem", marginLeft:"1rem"}}>
         {this.props.isAuthenticated ? (
           <Button
             color='dark'
             style={{ marginBottom: '2rem' }}
             onClick={this.toggle}
           >
-            Report A Bug
+            Add Project
           </Button>
         ) : (
-          <h4 className='mb-3 ml-4'>Please log in to report new bugs</h4>
+          <h4 className='mb-3 ml-4'>Please log in first!</h4>
         )}
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Report New Bugs</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Add New Projects</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='bug'>Bug</Label>
+                <Label for='bug'>Name</Label>
                 <Input
                   type='text'
                   name='name'
                   id='bug'
-                  placeholder='Bug Name'
+                  placeholder='Project Name'
                   onChange={this.onChange}
                 />
-                <Label for='reporter' className="mt-2">Reporter</Label>
+                <Label for='reporter' className="mt-2">Project Coordinator</Label>
                 <Input
                   type='text'
-                  name='reporter'
-                  id='reporter'
-                  placeholder='Reporter of the Bug'
+                  name='coordinator'
+                  id='coordinator'
+                  placeholder='Name of the project Coordinator'
                   onChange={this.onChange}
                 />
                 <Label for='description' className="mt-2">Description</Label>
@@ -92,7 +92,7 @@ class ItemModal extends Component {
                   type='text'
                   name='description'
                   id='description'
-                  placeholder='Description about the bug'
+                  placeholder='Description of the Project'
                   onChange={this.onChange}
                 />
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
@@ -115,4 +115,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addItem }
-)(ItemModal);
+)(ProjectModal);
