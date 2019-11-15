@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import AppNavbar from './components/AppNavbar';
-import ProjectsList from './components/ProjectsList';
-import ProjectModal from './components/ProjectModal';
+import AppNavbar from '../components/AppNavbar';
+import ItemList from '../components/ItemList';
+import ItemModal from '../components/ItemModal';
 import { Container } from 'reactstrap';
-import { loadUser } from './actions/authActions';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import { loadUser } from './actions/authActions';
 
 
 class Projects extends Component {
@@ -18,8 +16,8 @@ class Projects extends Component {
         <div className='Projects'>
           <AppNavbar />
           <Container>
-            <ProjectModal />
-            <ProjectsList />
+            <ItemModal />
+            <ItemList />
           </Container>
         </div>
     );

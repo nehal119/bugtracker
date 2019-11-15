@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
-class ProjectModal extends Component {
+class ProjectsModal extends Component {
   state = {
     modal: false,
     name: '',
@@ -115,4 +115,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addItem }
-)(ProjectModal);
+)(ProjectsModal);

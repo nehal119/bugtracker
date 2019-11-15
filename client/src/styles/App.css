@@ -20,5 +20,5 @@
   transition: opacity 1000ms ease-in;
 }
 body{
-  background-color: bisque;
+  background-color: bisque!important;
 }
