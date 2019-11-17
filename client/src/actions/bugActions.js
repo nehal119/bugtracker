@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { GET_BUGS, ADD_BUG, DELETE_BUG, BUGS_LOADING } from './types';
+import { GET_BUGS, ADD_BUG, DELETE_BUG, ITEMS_LOADING } from './types';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
-export const getBugs = () => dispatch => {
+export const getBugs = (id) => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get('/api/projects/:id')
+    .get(`/api/bugs/${id}`)
     .then(res =>
       dispatch({
         type: GET_BUGS,
@@ -18,9 +18,9 @@ export const getBugs = () => dispatch => {
     );
 };
 
-export const addBug = bug => (dispatch, getState) => {
+export const addBug = (bug, id) => (dispatch, getState) => {
   axios
-    .post('/api/projects/:id', bug, tokenConfig(getState))
+    .post(`/api/bugs/${id}`, bug, tokenConfig(getState))
     .then(res =>
       dispatch({
         type: ADD_BUG,

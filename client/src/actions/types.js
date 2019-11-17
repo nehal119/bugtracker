@@ -12,3 +12,9 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+export const GET_BUGS = 'GET_BUGS';
+export const ADD_BUG = 'ADD_BUG';
+export const DELETE_BUG = 'DELETE_BUG';
+
+export const GET_PROJECT_ID = 'GET_PROJECT_ID';

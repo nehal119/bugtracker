@@ -10,20 +10,20 @@ import {
   Input
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addItem } from '../actions/itemActions';
+import { addBug } from '../actions/bugActions';
 import PropTypes from 'prop-types';
 
 class ProjectDetailModal extends Component {
   state = {
     modal: false,
     name: '',
-    description: ''
+    description: '',
+    projectId: this.props.id
   };
 
   static propTypes = {
     isAuthenticated: PropTypes.bool
   };
-
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -37,15 +37,13 @@ class ProjectDetailModal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const newItem = {
+    const newBug = {
       name: this.state.name,
-      description: this.state.description
+      description: this.state.description,
+      projectId: this.state.projectId
     };
-
-    // Add item via addItem action
-    this.props.addItem(newItem);
-
-    // Close modal
+  // ADDDING THE BUG
+    this.props.addBug(newBug, this.state.projectId);
     this.toggle();
   };
 
@@ -76,6 +74,7 @@ class ProjectDetailModal extends Component {
                   id='bug'
                   placeholder='Bug Name'
                   onChange={this.onChange}
+                  required
                 />
                 {/* <Label for='reporter' className="mt-2">Project Coordinator</Label>
                 <Input
@@ -92,6 +91,7 @@ class ProjectDetailModal extends Component {
                   id='description'
                   placeholder='Description of the Bug'
                   onChange={this.onChange}
+                  required
                 />
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
                   Add
@@ -106,11 +106,8 @@ class ProjectDetailModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.item,
+  bug: state.bug,
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { addItem }
-)(ProjectDetailModal);
+export default connect(mapStateToProps,{ addBug })(ProjectDetailModal);

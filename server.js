@@ -12,8 +12,7 @@ app.use(express.json());
 const db = config.get('mongoURI');
 
 // Connect to Mongo
-mongoose
-  .connect(db, { 
+mongoose.connect(db, { 
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -23,6 +22,7 @@ mongoose
 
 // Use Routes
 app.use('/api/items', require('./routes/api/items'));
+app.use('/api/bugs', require('./routes/api/bugs'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 

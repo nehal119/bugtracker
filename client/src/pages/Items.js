@@ -6,14 +6,14 @@ import { Container } from 'reactstrap';
 // import { loadUser } from './actions/authActions';
 
 
-class Projects extends Component {
+class Items extends Component {
   // componentDidMount() {
   //   store.dispatch(loadUser());
   // }
 
   render() {
     return (
-        <div className='Projects'>
+        <div className='Items'>
           <AppNavbar />
           <Container>
             <ItemModal />
@@ -24,4 +24,4 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+export default Items;

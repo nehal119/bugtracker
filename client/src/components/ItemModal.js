@@ -18,7 +18,7 @@ class ProjectsModal extends Component {
     modal: false,
     name: '',
     coordinator: '',
-    description: ''
+    description: '',
   };
 
   static propTypes = {
@@ -37,17 +37,12 @@ class ProjectsModal extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
     const newItem = {
       name: this.state.name,
       coordinator: this.state.coordinator,
       description: this.state.description
     };
-
-    // Add item via addItem action
     this.props.addItem(newItem);
-
-    // Close modal
     this.toggle();
   };
 
@@ -78,6 +73,7 @@ class ProjectsModal extends Component {
                   id='bug'
                   placeholder='Project Name'
                   onChange={this.onChange}
+                  required
                 />
                 <Label for='reporter' className="mt-2">Project Coordinator</Label>
                 <Input
@@ -86,6 +82,7 @@ class ProjectsModal extends Component {
                   id='coordinator'
                   placeholder='Name of the project Coordinator'
                   onChange={this.onChange}
+                  required
                 />
                 <Label for='description' className="mt-2">Description</Label>
                 <Input
@@ -94,6 +91,7 @@ class ProjectsModal extends Component {
                   id='description'
                   placeholder='Description of the Project'
                   onChange={this.onChange}
+                  required
                 />
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
                   Add
@@ -112,7 +110,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { addItem }
-)(ProjectsModal);
+export default connect(mapStateToProps, { addItem })(ProjectsModal);

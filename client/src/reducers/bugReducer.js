@@ -2,11 +2,11 @@ import {
     GET_BUGS,
     ADD_BUG,
     DELETE_BUG,
-    BUGS_LOADING
+    ITEMS_LOADING
   } from '../actions/types';
   
   const initialState = {
-    items: [],
+    bugs: [],
     loading: false
   };
   
@@ -15,20 +15,20 @@ import {
       case GET_BUGS:
         return {
           ...state,
-          items: action.payload,
+          bugs: action.payload,
           loading: false
         };
       case DELETE_BUG:
         return {
           ...state,
-          items: state.items.filter(item => item._id !== action.payload)
+          bugs: state.bugs.filter(bug => bug._id !== action.payload)
         };
       case ADD_BUG:
         return {
           ...state,
-          items: [action.payload, ...state.items]
+          bugs: [action.payload, ...state.bugs]
         };
-      case BUGS_LOADING:
+      case ITEMS_LOADING:
         return {
           ...state,
           loading: true

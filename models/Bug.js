@@ -11,6 +11,10 @@ const BugSchema = new Schema({
     type: String,
     required: true
   },
+  projectId: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
