@@ -24,11 +24,15 @@ class ProjectsList extends Component {
     const { items } = this.props.item;
     return (
       <Container>
+        <h3 className="mb-5 text-center font-weight-light">PROJECTS WE ARE TRACKING</h3>
         <ListGroup>
+          {/* <ListGroupItem style={{backgroundColor: "#FFE0C4"}}>
+            <h3>Projcts we are tracking</h3>
+          </ListGroupItem> */}
           <TransitionGroup className='shopping-list'>
             {items.map(({ _id, name, reporter, date }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
-                <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE0C4"}}>
+                <ListGroupItem className="mb-3 font-weight-light" style={{backgroundColor: "#FFE0C4"}}>
                  <h3> {name} </h3>
                  <p>Started on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p> 
 
