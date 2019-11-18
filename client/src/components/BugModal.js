@@ -86,7 +86,7 @@ class ProjectDetailModal extends Component {
                 /> */}
                 <Label for='description' className="mt-2">Description</Label>
                 <Input
-                  type='text'
+                  type='textarea'
                   name='description'
                   id='description'
                   placeholder='Description of the Bug'

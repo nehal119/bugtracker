@@ -86,13 +86,14 @@ class ProjectsModal extends Component {
                 />
                 <Label for='description' className="mt-2">Description</Label>
                 <Input
-                  type='text'
+                  type='textarea'
                   name='description'
                   id='description'
                   placeholder='Description of the Project'
                   onChange={this.onChange}
                   required
                 />
+                
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
                   Add
                 </Button>

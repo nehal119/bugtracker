@@ -29,9 +29,9 @@ class ProjectsList extends Component {
           <TransitionGroup className='shopping-list'>
             {bugs.map(({ _id, name, description, date }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
-                <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE0C4"}}>
-                 <h3><bold> {name}</bold> </h3>
-                 <p>Started on: {date}</p> 
+                <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE3C4"}}>
+                 <h5> {name} </h5>
+                 <p>Reported on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p>
                   {this.props.isAuthenticated ? (
                     // <Button
                     //   className='remove-btn mr-5'

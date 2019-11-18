@@ -13,6 +13,11 @@ router.get('/', (req, res) => {
     .then(items => res.json(items));
 });
 
+router.get('/:id', (req, res) => {
+  Item.findById(req.params.id)
+    .then(items => res.json(items));
+});
+
 // @route   POST api/items
 // @desc    Create An Item
 // @access  Private

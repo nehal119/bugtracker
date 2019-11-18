@@ -12,7 +12,6 @@ class ProjectsList extends Component {
     item: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   };
-
   componentDidMount() {
     this.props.getItems();
   }
@@ -31,7 +30,8 @@ class ProjectsList extends Component {
               <CSSTransition key={_id} timeout={500} classNames='fade'>
                 <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE0C4"}}>
                  <h3><bold> {name}</bold> </h3>
-                 <p>Started on: {date}</p> 
+                 <p>Started on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p> 
+
                   {this.props.isAuthenticated ? (
                     // <Button
                     //   className='remove-btn mr-5'
