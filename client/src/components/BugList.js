@@ -41,7 +41,7 @@ class ProjectsList extends Component {
                     // >
                     //   More Info
                     // </Button>
-                    <Link to="/">More</Link>
+                    <Link to={`/projects/${this.props.id}/${_id}`}>More</Link>
                   ) : null}
                 </ListGroupItem>
               </CSSTransition>

@@ -5,6 +5,7 @@ import Items from './pages/Items';
 import Home from './pages/Home';
 import Feed from './pages/Feed';
 import Bugs from './pages/Bugs';
+import BugDetails from './pages/BugDetails';
 import './styles/App.css';
 
 import store from './store';
@@ -25,6 +26,7 @@ class Root extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/Feed" component={Feed} />
             <Route exact path="/projects/:id" component={Bugs} />
+            <Route exact path="/projects/:projectId/:bugId" component={BugDetails} />
         </Switch>
       </Router>
       </Provider>

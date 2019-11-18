@@ -29,7 +29,7 @@ class ProjectsList extends Component {
             {items.map(({ _id, name, reporter, date }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
                 <ListGroupItem className="mb-3" style={{backgroundColor: "#FFE0C4"}}>
-                 <h3><bold> {name}</bold> </h3>
+                 <h3> {name} </h3>
                  <p>Started on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p> 
 
                   {this.props.isAuthenticated ? (

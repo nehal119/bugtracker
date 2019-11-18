@@ -13,6 +13,11 @@ router.get('/:id', (req,res) => {
       .then(bugs => res.json(bugs));
 });
 
+router.get('/:projectId/:bugId', (req,res) => {
+  Bug.findById(req.params.bugId)
+    .then(items => res.json(items));
+});
+
 // @route   POST api/items
 // @desc    Create An Item
 // @access  Private
