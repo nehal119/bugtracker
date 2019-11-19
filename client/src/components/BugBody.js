@@ -6,8 +6,8 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 class BugBody extends Component {
   static propTypes = {
-    getData: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
+    getBugData: PropTypes.func.isRequired,
+    bugData: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   };
   componentDidMount() {
@@ -19,7 +19,6 @@ class BugBody extends Component {
 //   };
   render() {
     const { bugData } = this.props.bugData;
-    console.log(bugData)
     return (
       <Container>
         <ListGroup>
