@@ -20,6 +20,7 @@ class RegisterModal extends Component {
   state = {
     modal: false,
     name: '',
+    userName: '',
     email: '',
     password: '',
     msg: null
@@ -66,11 +67,12 @@ class RegisterModal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { name, email, password } = this.state;
+    const { name, userName, email, password } = this.state;
 
     // Create user object
     const newUser = {
       name,
+      userName,
       email,
       password
     };
@@ -99,17 +101,26 @@ class RegisterModal extends Component {
                   type='text'
                   name='name'
                   id='name'
-                  placeholder='Name'
+                  placeholder='name'
+                  className='mb-3'
+                  onChange={this.onChange}
+                />
+                <Label for='userName'>Username</Label>
+                <Input
+                  type='text'
+                  name='userName'
+                  id='userName'
+                  placeholder='username'
                   className='mb-3'
                   onChange={this.onChange}
                 />
 
-                <Label for='email'>Email</Label>
+                <Label for='email'>Email ID</Label>
                 <Input
                   type='email'
                   name='email'
                   id='email'
-                  placeholder='Email'
+                  placeholder='email'
                   className='mb-3'
                   onChange={this.onChange}
                 />
@@ -119,7 +130,7 @@ class RegisterModal extends Component {
                   type='password'
                   name='password'
                   id='password'
-                  placeholder='Password'
+                  placeholder='password'
                   className='mb-3'
                   onChange={this.onChange}
                 />

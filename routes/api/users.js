@@ -12,20 +12,26 @@ const User = require('../../models/User');
 // @desc    Register new user
 // @access  Public
 router.post('/', (req, res) => {
-  const { name, email, password } = req.body;
+  const { name,userName, email, password } = req.body;
 
   // Simple validation
-  if(!name || !email || !password) {
+  if(!name ||!userName || !email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
 
   // Check for existing user
+  User.findOne({ userName })
+    .then(user => {
+      if(user) return res.status(400).json({ msg: 'Username already taken' });
+    })
+
   User.findOne({ email })
     .then(user => {
-      if(user) return res.status(400).json({ msg: 'User already exists' });
+      if(user) return res.status(400).json({ msg: 'Email already exists' });
 
       const newUser = new User({
         name,
+        userName,
         email,
         password
       });
@@ -48,6 +54,7 @@ router.post('/', (req, res) => {
                     user: {
                       id: user.id,
                       name: user.name,
+                      userName: user.userName,
                       email: user.email
                     }
                   });
