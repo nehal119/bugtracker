@@ -25,7 +25,8 @@ router.post('/', (req, res) => {
   const newItem = new Item({
     name: req.body.name,
     coordinator: req.body.coordinator,
-    description: req.body.description
+    description: req.body.description,
+    numberOfBugs: 0
   });
   newItem.save().then(item => res.json(item));
 });

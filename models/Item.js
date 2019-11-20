@@ -15,6 +15,9 @@ const ItemSchema = new Schema({
     type: String,
     required: true
   },
+  numberOfBugs:{
+    type: Number
+  },
   date: {
     type: Date,
     default: Date.now
