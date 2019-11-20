@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getBugs, deleteBug } from '../actions/bugActions';
@@ -28,11 +28,13 @@ class ProjectsList extends Component {
         <h3 className="mb-3 mt-5 text-center font-weight-light">BUGS WE HAVE</h3>
         <ListGroup>
           <TransitionGroup className='shopping-list'>
-            {bugs.map(({ _id, name, description, date }) => (
+            {bugs.map(({ _id, name, description, date, level, reporter }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
                 <ListGroupItem className="mb-3 font-weight-light" style={{backgroundColor: "#FFE3C4"}}>
                  <h5> {name} </h5>
                  <p>Reported on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p>
+                 <p>Reported By: {reporter}</p>
+                  <p>Critical Level: {level === "Normal" ? <span role="img" aria-label="Normal">🟢</span> : level === "Critical" ?   <span role="img" aria-label="Crical">🟡</span> : <span role="img" aria-label="Severe">🔴</span>}</p>
                   {this.props.isAuthenticated ? (
                     // <Button
                     //   className='remove-btn mr-5'

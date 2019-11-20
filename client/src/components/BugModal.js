@@ -17,6 +17,8 @@ class ProjectDetailModal extends Component {
   state = {
     modal: false,
     name: '',
+    reporter: '',
+    level: '',
     description: '',
     projectId: this.props.id
   };
@@ -39,6 +41,8 @@ class ProjectDetailModal extends Component {
 
     const newBug = {
       name: this.state.name,
+      reporter: this.state.reporter,
+      level: this.state.level,
       description: this.state.description,
       projectId: this.state.projectId
     };
@@ -76,14 +80,36 @@ class ProjectDetailModal extends Component {
                   onChange={this.onChange}
                   required
                 />
-                {/* <Label for='reporter' className="mt-2">Project Coordinator</Label>
+                <Label className="mt-2" for='reporter'>Reporter</Label>
                 <Input
                   type='text'
-                  name='coordinator'
-                  id='coordinator'
-                  placeholder='Name of the project Coordinator'
+                  name='reporter'
+                  id='reporter'
+                  placeholder='Reporter Name'
                   onChange={this.onChange}
-                /> */}
+                  required
+                />
+
+                <p className="mb-0 mt-2">Level</p>
+                <FormGroup className="ml-2" check>
+                  <Label check>
+                    <Input type="radio" name="level" value="Normal" onChange={this.onChange} />{' '}
+                      Normal
+                  </Label>
+                </FormGroup>
+                <FormGroup className="ml-2" check>
+                  <Label check>
+                    <Input type="radio" name="level" value="Critical" onChange={this.onChange} />{' '}
+                      Critical
+                  </Label>
+                </FormGroup>
+                <FormGroup className="ml-2" check>
+                  <Label check>
+                    <Input type="radio" name="level" value="Severe" onChange={this.onChange} />{' '}
+                      Severe
+                  </Label>
+                </FormGroup>
+
                 <Label for='description' className="mt-2">Description</Label>
                 <Input
                   type='textarea'

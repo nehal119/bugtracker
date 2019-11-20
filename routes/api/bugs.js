@@ -35,6 +35,8 @@ router.get('/:projectId/:bugId', (req,res) => {
 router.post('/:id', (req, res) => {
   const newBug = new Bug({
       name: req.body.name,
+      reporter: req.body.reporter,
+      level: req.body.level,
       description: req.body.description,
       projectId: req.params.id,
       date: new Date()

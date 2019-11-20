@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
@@ -12,8 +12,7 @@ class ProjectsList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool,
-    getNumberOfBugs: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
   };
   componentDidMount() {
     this.props.getItems();
@@ -38,7 +37,7 @@ class ProjectsList extends Component {
                 <ListGroupItem className="mb-3 font-weight-light" style={{backgroundColor: "#FFE0C4"}}>
                  <h3> {name} </h3>
                  <p>Started on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p> 
-                  <p>Status: Active {numberOfBugs == 0 ? <span>🟢🟢🟢</span> : numberOfBugs < 5 ? <span>🟡🟡🟡</span> : <span>🔴🔴🔴</span>}</p>
+                  <p>Status: Active {numberOfBugs === 0 ? <span role="img" aria-label="green">🟢🟢🟢</span> : numberOfBugs < 5 ? <span role="img" aria-label="yellow">🟡🟡🟡</span> : <span role="img" aria-label="red">🔴🔴🔴</span>}</p>
                   <p>Total Bugs: {numberOfBugs}</p>
                    <p>Moderators: {coordinator}</p>
                   {this.props.isAuthenticated ? (

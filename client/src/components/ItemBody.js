@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getData } from '../actions/dataActions';
 import PropTypes from 'prop-types';
-import {Link} from "react-router-dom";
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 
 class ItemBody extends Component {
   static propTypes = {
@@ -25,13 +24,13 @@ class ItemBody extends Component {
     return (
       <Container>
         <ListGroup>
-            <ListGroupItem className="mb-5" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem"}}>
+            <ListGroupItem className="mb-5 font-weight-light" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem"}}>
                 <h3>{data.name}</h3>
                
-                <p>Reported on: {date == undefined ? "" : date.split("T")[0]}
-                <span> AT</span> {date == undefined ? "" : date.split("T")[1].split(".")[0]}</p>
+                <p>Reported on: {date === undefined ? "" : date.split("T")[0]}
+                <span> AT</span> {date === undefined ? "" : date.split("T")[1].split(".")[0]}</p>
 
-                <p>Status: Active {data.numberOfBugs == 0 ? <span>🟢🟢🟢</span> : data.numberOfBugs < 5 ? <span>🟡🟡🟡</span> : <span>🔴🔴🔴</span>}</p>
+                <p>Status: Active {data.numberOfBugs === 0 ? <span role="img" aria-label="green">🟢🟢🟢</span> : data.numberOfBugs < 5 ? <span role="img" aria-label="yellow">🟡🟡🟡</span> : <span role="img" aria-label="red">🔴🔴🔴</span>}</p>
                   <p>Total Bugs: {data.numberOfBugs}</p>
             
                 <p>Description: {data.description}</p>
