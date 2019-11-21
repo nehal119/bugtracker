@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_DATA, ITEMS_LOADING } from './types';
-import { tokenConfig } from './authActions';
+// import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 export const getData = (id) => dispatch => {

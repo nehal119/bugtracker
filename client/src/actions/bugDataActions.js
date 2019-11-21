@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_BUG_DATA, ITEMS_LOADING, ADD_PATCHING_USER } from './types';
-import { tokenConfig } from './authActions';
+// import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 export const getBugData = (projectId, bugId) => dispatch => {
