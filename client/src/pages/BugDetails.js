@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AppNavbar from '../components/AppNavbar';
 import BugBody from '../components/BugBody';
 import { Container } from 'reactstrap';
+import AppFooter from '../components/AppFooter';
 
 class BugDetails extends Component {
     render() {
@@ -12,6 +13,7 @@ class BugDetails extends Component {
                 <Container>
                     <BugBody projectId={projectId} bugId={bugId} />
                 </Container>
+                <AppFooter />
             </div>
         )
     }

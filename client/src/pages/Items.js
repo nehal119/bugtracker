@@ -3,6 +3,7 @@ import AppNavbar from '../components/AppNavbar';
 import ItemList from '../components/ItemList';
 import ItemModal from '../components/ItemModal';
 import { Container } from 'reactstrap';
+import AppFooter from '../components/AppFooter';
 // import { loadUser } from './actions/authActions';
 
 
@@ -19,6 +20,7 @@ class Items extends Component {
             <ItemModal />
             <ItemList />
           </Container>
+          <AppFooter />
         </div>
     );
   }

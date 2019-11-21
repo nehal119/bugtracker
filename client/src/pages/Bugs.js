@@ -4,6 +4,7 @@ import BugList from '../components/BugList';
 import BugModal from '../components/BugModal';
 import ItemBody from '../components/ItemBody';
 import { Container } from 'reactstrap';
+import AppFooter from '../components/AppFooter';
 
 class Bugs extends Component {
     render() {
@@ -16,6 +17,7 @@ class Bugs extends Component {
                     <ItemBody id={id} />
                     <BugList id={id} />
                 </Container>
+                <AppFooter />
             </div>
         )
     }
