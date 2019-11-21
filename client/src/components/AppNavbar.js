@@ -65,7 +65,7 @@ class AppNavbar extends Component {
  /* <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" 
  color-on-scroll="100" id="sectionsNav"></nav> */
         <Navbar expand='sm' className='navbar navbar-light fixed-top' style={{backgroundColor: "#FFE4C4"}}>
-            <NavbarBrand href='/'>BugTracker</NavbarBrand>
+            <NavbarBrand href='/'>BUGTRACKER</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className='mr-auto' navbar>
