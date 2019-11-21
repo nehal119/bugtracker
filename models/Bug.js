@@ -24,7 +24,7 @@ const BugSchema = new Schema({
     required: true
   },
   patchingUser: {
-    type: String
+    type: String,
   },
   resolved: {
     type: Boolean,

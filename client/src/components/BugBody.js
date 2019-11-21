@@ -15,12 +15,10 @@ class BugBody extends Component {
   }
 
   onClick = e =>{
-    
     const patchingUser = {
       patchingUser: this.props.user.userName
     }
     this.props.addPatchingUser(patchingUser, this.props.bugId)
-    e.preventDefault()
   }
 
   onDeleteClick = id => {

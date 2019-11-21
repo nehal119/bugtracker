@@ -35,13 +35,15 @@ class AppNavbar extends Component {
     const authLinks = (
       <Fragment>
         <NavItem>
-              <NavLink disabled href="/dashboard/:user">Dashboard</NavLink>
-        </NavItem>
-        {/* <NavItem>
           <span className='navbar-text mr-3'>
             <strong>{user ? `Welcome ${user.name}` : ''}</strong>
           </span>
-        </NavItem> */}
+        </NavItem>
+        
+        <NavItem>
+              <NavLink disabled href="/dashboard/:user">Dashboard</NavLink>
+        </NavItem>
+        
         <NavItem>
           <Logout />
         </NavItem>

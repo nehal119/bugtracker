@@ -66,22 +66,31 @@ router.post("/patchingUser/:id", (req, res) => {
     if(err){
       console.log(err)
     }else{
-      // console.log(foundObject.patchingUser.split(","))
-      foundObject.patchingUser.split(",").map(value => {
-          // console.log(value)
-          if(value != req.body.patchingUsere && value != ""){
-            foundObject.patchingUser = req.body.patchingUser + "," + foundObject.patchingUser
-            foundObject.save(function(err, updatedObject){
-              if(err){
-                console.log(err)
-              }else{
-                console.log("User Added")
-              }
-            })
-          }else{
-            console.log("User Already Exists")
-          }
+      foundObject.patchingUser = req.body.patchingUser;
+      foundObject.save(function(err, updatedObject){
+        if(err){
+          console.log(err)
+        }else{
+          console.log("User Added")
+        }
       })
+
+      // console.log(foundObject.patchingUser.split(","))
+      // foundObject.patchingUser.split(",").map(value => {
+      //     // console.log(value)
+      //     if(value != req.body.patchingUsere && value != ""){
+      //       foundObject.patchingUser = req.body.patchingUser + "," + foundObject.patchingUser
+      //       foundObject.save(function(err, updatedObject){
+      //         if(err){
+      //           console.log(err)
+      //         }else{
+      //           console.log("User Added")
+      //         }
+      //       })
+      //     }else{
+      //       console.log("User Already Exists")
+      //     }
+      // })
       // foundObject.patchingUser.push("hi")
       // console.log(foundObject.patchingUser)
       //       foundObject.save(function(err, updatedObject){
@@ -95,9 +104,8 @@ router.post("/patchingUser/:id", (req, res) => {
     }
   })
 })
-// @route   DELETE api/items/:id
-// @desc    Delete A Item
-// @access  Private
+
+
 router.delete('/:id/:bugId', (req, res) => {
   Bug.findById(req.params.bugId)
       .then(item => item.remove().then(() => res.json({success: true})))
