@@ -127,7 +127,4 @@ const mapStateToProps = state => ({
   error: state.error
 });
 
-export default connect(
-  mapStateToProps,
-  { login, clearErrors }
-)(LoginModal);
+export default connect(mapStateToProps,{ login, clearErrors })(LoginModal);

@@ -20,3 +20,4 @@ export const DELETE_BUG = 'DELETE_BUG';
 export const GET_DATA = 'GET_DATA'; 
 
 export const GET_BUG_DATA = 'GET_BUG_DATA'; 
+export const ADD_PATCHING_USER = 'ADD_PATCHING_USER'; 

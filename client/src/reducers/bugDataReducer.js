@@ -1,6 +1,7 @@
 import {
     GET_BUG_DATA,
-    ITEMS_LOADING
+    ITEMS_LOADING,
+    ADD_PATCHING_USER
   } from '../actions/types';
   
   const initialState = {
@@ -14,6 +15,10 @@ import {
         return {
           ...state,
           bugData: action.payload,
+          loading: false
+        };
+      case ADD_PATCHING_USER:
+        return {
           loading: false
         };
       case ITEMS_LOADING:

@@ -20,7 +20,4 @@ export class Logout extends Component {
   }
 }
 
-export default connect(
-  null,
-  { logout }
-)(Logout);
+export default connect(null,{ logout })(Logout);

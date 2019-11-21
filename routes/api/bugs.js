@@ -45,10 +45,6 @@ router.post('/:id', (req, res) => {
       .then(bug => res.json(bug))
       .catch(()=> res.json({sucess: false}))
 
-  // Item.updateOne({'_id': req.params.id}, {'numberOfBugs': increment + 100})
-  //         .then(console.log("HI"))
-  //         .catch(console.log("MY BAD"))
-  // Item.updateOne({_id: "5dd5238d6eca0c34fcfbc5e9"}, {$set: {description:"NO Laptop"}})
   Item.findOne({_id: req.params.id}, function(err, foundObject) {
     if(err){
       console.log(err)
@@ -58,13 +54,47 @@ router.post('/:id', (req, res) => {
         if(err){
           console.log(err)
         }else{
-          console.log(updatedObject)
+          console.log("Update Done")
         }
       })
     }
   })
 })
 
+router.post("/patchingUser/:id", (req, res) => {
+  Bug.findOne({_id: req.params.id}, function(err, foundObject) {
+    if(err){
+      console.log(err)
+    }else{
+      // console.log(foundObject.patchingUser.split(","))
+      foundObject.patchingUser.split(",").map(value => {
+          // console.log(value)
+          if(value != req.body.patchingUsere && value != ""){
+            foundObject.patchingUser = req.body.patchingUser + "," + foundObject.patchingUser
+            foundObject.save(function(err, updatedObject){
+              if(err){
+                console.log(err)
+              }else{
+                console.log("User Added")
+              }
+            })
+          }else{
+            console.log("User Already Exists")
+          }
+      })
+      // foundObject.patchingUser.push("hi")
+      // console.log(foundObject.patchingUser)
+      //       foundObject.save(function(err, updatedObject){
+      //         if(err){
+      //           console.log(err)
+      //         }else{
+      //           console.log("Update Done")
+      //         }
+      //       })
+      
+    }
+  })
+})
 // @route   DELETE api/items/:id
 // @desc    Delete A Item
 // @access  Private

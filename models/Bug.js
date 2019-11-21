@@ -23,6 +23,13 @@ const BugSchema = new Schema({
     type: String,
     required: true
   },
+  patchingUser: {
+    type: String
+  },
+  resolved: {
+    type: Boolean,
+    default: false
+  },
   date: {
     type: Date,
     default: Date.now

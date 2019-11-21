@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getBugData } from '../actions/bugDataActions';
+import { getBugData, addPatchingUser } from '../actions/bugDataActions';
 import PropTypes from 'prop-types';
-import { Container, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Form } from 'reactstrap';
 
 class BugBody extends Component {
   static propTypes = {
@@ -14,9 +14,18 @@ class BugBody extends Component {
     this.props.getBugData(this.props.ProjectId, this.props.bugId);
   }
 
-//   onDeleteClick = id => {
-//     this.props.deleteItem(id);
-//   };
+  onClick = e =>{
+    
+    const patchingUser = {
+      patchingUser: this.props.user.userName
+    }
+    this.props.addPatchingUser(patchingUser, this.props.bugId)
+    e.preventDefault()
+  }
+
+  onDeleteClick = id => {
+    this.props.deleteItem(id);
+  };
   render() {
     const { bugData } = this.props.bugData;
     const date = bugData.date;
@@ -24,7 +33,7 @@ class BugBody extends Component {
     return (
       <Container>
         <ListGroup>
-            <ListGroupItem className="mb-5 font-weight-light" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem", marginTop:"5rem"}}>
+            <ListGroupItem className="font-weight-light" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem", marginTop:"5rem"}}>
                 <h3>{bugData.name}</h3>
                
                 <p>Reported on: {date === undefined ? "" : date.split("T")[0]}
@@ -32,11 +41,21 @@ class BugBody extends Component {
             
                 <p>Reporter: {bugData.reporter}</p>
 
-                <p>Critical Level: {level === "Normal" ? <span role="img" aria-label="Normal">🟢🟢🟢</span> : level === "Critical" ?   <span role="img" aria-label="Crical">🟡🟡🟡</span> : <span role="img" aria-label="Severe">🔴🔴🔴</span>}</p>
+                <p>Level: {level === "Normal" ? <span role="img" aria-label="Normal">Normal 🟢🟢🟢</span> : level === "Critical" ?   <span role="img" aria-label="Crical">Critical 🟡🟡🟡</span> : <span role="img" aria-label="Severe">Severe 🔴🔴🔴</span>}</p>
 
 
                 <p>Description: {bugData.description}</p>
                
+            </ListGroupItem>
+            <ListGroupItem className="mb-5 font-weight-light" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem", marginTop:"5rem"}}>
+
+          <h5>Patching this Bug:</h5>
+          <a href="/">{bugData.patchingUser}</a>
+          {bugData.resolved ? <p>Bug Fixed <span>⬅✔➡</span></p> : <p>Bug not fixed yet <span>❌💀❌</span></p>}
+            
+            <Form onSubmit={this.onClick}>
+                <Button color="dark" >Add Me</Button>
+            </Form>
             </ListGroupItem>
         </ListGroup>
         
@@ -47,7 +66,8 @@ class BugBody extends Component {
 
 const mapStateToProps = state => ({
   bugData: state.bugData,
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user
 });
 
-export default connect(mapStateToProps,{ getBugData })(BugBody);
+export default connect(mapStateToProps,{ getBugData, addPatchingUser })(BugBody);

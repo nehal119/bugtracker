@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { addBug } from '../actions/bugActions';
 import PropTypes from 'prop-types';
 
-class ProjectDetailModal extends Component {
+class BugModal extends Component {
   state = {
     modal: false,
     name: '',
@@ -24,7 +24,8 @@ class ProjectDetailModal extends Component {
   };
 
   static propTypes = {
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    auth: PropTypes.object.isRequired
   };
   toggle = () => {
     this.setState({
@@ -41,7 +42,7 @@ class ProjectDetailModal extends Component {
 
     const newBug = {
       name: this.state.name,
-      reporter: this.state.reporter,
+      reporter: this.props.user.userName,
       level: this.state.level,
       description: this.state.description,
       projectId: this.state.projectId
@@ -52,6 +53,10 @@ class ProjectDetailModal extends Component {
   };
 
   render() {
+    // const { isAuthenticated, user } = this.props.auth;
+    // const {name, userName} = user
+    //console.log(this.props.user.userName)
+    // console.log(this.props.isAuthenticated)
     return (
       <div style={{marginTop: "5rem", marginLeft:"1rem"}}>
         {this.props.isAuthenticated ? (
@@ -80,16 +85,6 @@ class ProjectDetailModal extends Component {
                   onChange={this.onChange}
                   required
                 />
-                <Label className="mt-2" for='reporter'>Reporter</Label>
-                <Input
-                  type='text'
-                  name='reporter'
-                  id='reporter'
-                  placeholder='Reporter Name'
-                  onChange={this.onChange}
-                  required
-                />
-
                 <p className="mb-0 mt-2">Level</p>
                 <FormGroup className="ml-2" check>
                   <Label check>
@@ -133,7 +128,8 @@ class ProjectDetailModal extends Component {
 
 const mapStateToProps = state => ({
   bug: state.bug,
+  user: state.auth.user,
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps,{ addBug })(ProjectDetailModal);
+export default connect(mapStateToProps,{ addBug })(BugModal);

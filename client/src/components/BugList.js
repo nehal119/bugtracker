@@ -34,7 +34,7 @@ class ProjectsList extends Component {
                  <h5> {name} </h5>
                  <p>Reported on: {date.split("T")[0]} AT {date.split("T")[1].split(".")[0]}</p>
                  <p>Reported By: {reporter}</p>
-                  <p>Critical Level: {level === "Normal" ? <span role="img" aria-label="Normal">🟢</span> : level === "Critical" ?   <span role="img" aria-label="Crical">🟡</span> : <span role="img" aria-label="Severe">🔴</span>}</p>
+                  <p>Level: {level === "Normal" ? <span role="img" aria-label="Normal">🟢</span> : level === "Critical" ?   <span role="img" aria-label="Crical">🟡</span> : <span role="img" aria-label="Severe">🔴</span>}</p>
                   {this.props.isAuthenticated ? (
                     // <Button
                     //   className='remove-btn mr-5'
