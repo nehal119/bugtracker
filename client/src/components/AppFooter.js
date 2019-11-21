@@ -18,13 +18,13 @@ class AppFooter extends Component {
                 <h6 className="text-uppercase font-weight-bold">Useful links</h6>
                 <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: "60px"}} />
                 <p>
-                  <a href="https://portfolio-nehal-ahmad.herokuapp.com/">Portfolio</a>
+                  <a className="blackMe" href="https://portfolio-nehal-ahmad.herokuapp.com/">Portfolio</a>
                 </p>
                 <p>
-                  <a href="https://github.com/nehal119">Github</a>
+                  <a className="blackMe" href="https://github.com/nehal119">Github</a>
                 </p>
                 <p>
-                  <a href="https://twitter.com/NehalAh23870525">Twitter</a>
+                  <a className="blackMe" href="https://twitter.com/NehalAh23870525">Twitter</a>
                 </p>
         
               </div>
@@ -45,7 +45,7 @@ class AppFooter extends Component {
             </div>
           </div>
           <div className="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://twitter.com/NehalAh23870525"> Nehal Ahmad</a>
+            <a className="blackMe" href="https://twitter.com/NehalAh23870525"> Nehal Ahmad</a>
           </div>
           
         
