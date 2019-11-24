@@ -1,4 +1,4 @@
-This application was made on `MERN` stack with `Authentication` and `Authorization` included. It is a scalable solution for a
+This application was made on `MERN` stack with `JWT` for authentication and authorization. It is a scalable solution for a
 project development and all the bugs we face while building it. A user can sign up and report for a bug and team members
 can view and fix it very easily.
 
