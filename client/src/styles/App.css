@@ -38,3 +38,6 @@ body {
 .light-background {
 	background-color: var(--light-color) !important;
 }
+.p3 {
+	padding: 3rem;
+}
