@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+
 :root {
 	--primary-color: #c5c5c5;
 	--secondary-color: #f4f4f4;
 	--light-color: #c5c5c5;
+}
+
+body {
+	background-color: var(--secondary-color) !important;
+	font-family: 'Raleway', sans-serif;
+	/* height: 100vh; */
+	/* background: #333 url('https://image.ibb.co/n5A2HU/showcase.jpg') no-repeat */
+	/* center center / cover; */
+	/* color: #ccc; */
+	width: 100vw;
+	overflow-x: hidden;
 }
 
 .remove-btn {
@@ -25,9 +38,6 @@
 	opacity: 0.01;
 	transition: opacity 1000ms ease-in;
 }
-body {
-	background-color: var(--secondary-color) !important;
-}
 
 .primary-background {
 	background-color: var(--primary-color) !important;
@@ -38,6 +48,19 @@ body {
 .light-background {
 	background-color: var(--light-color) !important;
 }
-.p3 {
+.p-3 {
 	padding: 3rem;
+}
+.p-2 {
+	padding: 2rem;
+}
+.p-1 {
+	padding: 1rem;
+}
+.mt-6 {
+	margin-top: 6rem;
+}
+
+.txt-type > .txt {
+	border-right: 0.2rem solid #777;
 }

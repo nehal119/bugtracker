@@ -5,48 +5,65 @@ import PropTypes from 'prop-types';
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 
 class ItemBody extends Component {
-  static propTypes = {
-    getData: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool
-  };
-  componentDidMount() {
-    this.props.getData(this.props.id);
-  }
+	static propTypes = {
+		getData: PropTypes.func.isRequired,
+		data: PropTypes.object.isRequired,
+		isAuthenticated: PropTypes.bool
+	};
+	componentDidMount() {
+		this.props.getData(this.props.id);
+	}
 
-//   onDeleteClick = id => {
-//     this.props.deleteItem(id);
-//   };
+	//   onDeleteClick = id => {
+	//     this.props.deleteItem(id);
+	//   };
 
-  render() {
-    const { data } = this.props.data;
-    const date = data.date;
-    return (
-      <Container>
-        <ListGroup>
-            <ListGroupItem className="mb-5 font-weight-light" style={{backgroundColor: "#FFE0C4", textAlign: "center", padding: "2rem"}}>
-                <h3>{data.name}</h3>
-               
-                <p>Reported on: {date === undefined ? "" : date.split("T")[0]}
-                <span> AT</span> {date === undefined ? "" : date.split("T")[1].split(".")[0]}</p>
+	render() {
+		const { data } = this.props.data;
+		const date = data.date;
+		return (
+			<Container>
+				<ListGroup>
+					<ListGroupItem className="mb-5 font-weight-light p-3 primary-background text-center">
+						<h3>{data.name}</h3>
 
-                <p>Status: Active {data.numberOfBugs === 0 ? <span role="img" aria-label="green">🟢🟢🟢</span> : data.numberOfBugs < 5 ? <span role="img" aria-label="yellow">🟡🟡🟡</span> : <span role="img" aria-label="red">🔴🔴🔴</span>}</p>
-                  <p>Total Bugs: {data.numberOfBugs}</p>
-            
-                <p>Description: {data.description}</p>
-                
-                <p>Project Moderators: {data.coordinator}</p>
-            </ListGroupItem>
-        </ListGroup>
-        
-      </Container>
-    );
-  }
+						<p>
+							Reported on: {date === undefined ? '' : date.split('T')[0]}
+							<span> AT</span>{' '}
+							{date === undefined ? '' : date.split('T')[1].split('.')[0]}
+						</p>
+
+						<p>
+							Status: Active{' '}
+							{data.numberOfBugs === 0 ? (
+								<span role="img" aria-label="green">
+									🟢🟢🟢
+								</span>
+							) : data.numberOfBugs < 5 ? (
+								<span role="img" aria-label="yellow">
+									🟡🟡🟡
+								</span>
+							) : (
+								<span role="img" aria-label="red">
+									🔴🔴🔴
+								</span>
+							)}
+						</p>
+						<p>Total Bugs: {data.numberOfBugs}</p>
+
+						<p>Description: {data.description}</p>
+
+						<p>Project Moderators: {data.coordinator}</p>
+					</ListGroupItem>
+				</ListGroup>
+			</Container>
+		);
+	}
 }
 
-const mapStateToProps = state => ({
-  data: state.data,
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+	data: state.data,
+	isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps,{ getData })(ItemBody);
+export default connect(mapStateToProps, { getData })(ItemBody);
