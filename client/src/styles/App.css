@@ -64,3 +64,6 @@ body {
 .txt-type > .txt {
 	border-right: 0.2rem solid #777;
 }
+.text-white {
+	color: #f4f4f4;
+}

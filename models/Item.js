@@ -15,7 +15,15 @@ const ItemSchema = new Schema({
     type: String,
     required: true
   },
-  numberOfBugs:{
+  github: {
+    type: String,
+    required: true
+  },
+  live: {
+    type: String,
+    required: true
+  },
+  numberOfBugs: {
     type: Number
   },
   date: {

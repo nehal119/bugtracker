@@ -18,7 +18,9 @@ class ProjectsModal extends Component {
 		modal: false,
 		name: '',
 		coordinator: '',
-		description: ''
+		description: '',
+		github: '',
+		live: ''
 	};
 
 	static propTypes = {
@@ -40,7 +42,9 @@ class ProjectsModal extends Component {
 		const newItem = {
 			name: this.state.name,
 			coordinator: this.state.coordinator,
-			description: this.state.description
+			description: this.state.description,
+			github: this.state.github,
+			live: this.state.live
 		};
 		this.props.addItem(newItem);
 		this.toggle();
@@ -58,8 +62,8 @@ class ProjectsModal extends Component {
 						Add Project
 					</Button>
 				) : (
-					<h4 className="mb-3 ml-4">Please log in first!</h4>
-				)}
+						<h4 className="mb-3 ml-4">Please log in first!</h4>
+					)}
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle}>
 					<ModalHeader toggle={this.toggle} className="primary-background">
@@ -85,6 +89,28 @@ class ProjectsModal extends Component {
 									name="coordinator"
 									id="coordinator"
 									placeholder="Name of the project Coordinator"
+									onChange={this.onChange}
+									required
+								/>
+								<Label for="github" className="mt-2">
+									Github Link
+								</Label>
+								<Input
+									type="text"
+									name="github"
+									id="github"
+									placeholder="https://github.com/userName/projectName"
+									onChange={this.onChange}
+									required
+								/>
+								<Label for="live" className="mt-2">
+									Live Website Link
+								</Label>
+								<Input
+									type="text"
+									name="live"
+									id="live"
+									placeholder="https://mywebsite.com/"
 									onChange={this.onChange}
 									required
 								/>

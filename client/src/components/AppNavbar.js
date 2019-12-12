@@ -70,7 +70,9 @@ class AppNavbar extends Component {
 				expand="sm"
 				className="navbar navbar-light fixed-top primary-background"
 			>
-				<NavbarBrand href="/">BUGTRACKER</NavbarBrand>
+				<NavbarBrand href="/" className="text-white">
+					BUGTRACKER
+				</NavbarBrand>
 				<NavbarToggler onClick={this.toggle} />
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="mr-auto" navbar>

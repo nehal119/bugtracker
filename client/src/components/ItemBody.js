@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getData } from '../actions/dataActions';
 import PropTypes from 'prop-types';
-import { Container, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, NavLink, Button } from 'reactstrap';
 
 class ItemBody extends Component {
 	static propTypes = {
@@ -44,16 +44,18 @@ class ItemBody extends Component {
 									🟡🟡🟡
 								</span>
 							) : (
-								<span role="img" aria-label="red">
-									🔴🔴🔴
+										<span role="img" aria-label="red">
+											🔴🔴🔴
 								</span>
-							)}
+									)}
 						</p>
 						<p>Total Bugs: {data.numberOfBugs}</p>
 
 						<p>Description: {data.description}</p>
 
 						<p>Project Moderators: {data.coordinator}</p>
+						<Button className="m-2" href={data.github} target="_blank">Github</Button>
+						<Button href={data.live} target="_blank">Live</Button>
 					</ListGroupItem>
 				</ListGroup>
 			</Container>

@@ -26,6 +26,8 @@ router.post('/', (req, res) => {
     name: req.body.name,
     coordinator: req.body.coordinator,
     description: req.body.description,
+    github: req.body.github,
+    live: req.body.live,
     numberOfBugs: 0
   });
   newItem.save().then(item => res.json(item));
@@ -38,9 +40,9 @@ router.delete('/:id', (req, res) => {
   Item.findById(req.params.id)
     .then(item => item.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
-  Bug.deleteMany({projectId: req.params.id})
-    .then(() => res.json({success: true}))
-    .catch(err => res.status(404).json({success: false}));
+  Bug.deleteMany({ projectId: req.params.id })
+    .then(() => res.json({ success: true }))
+    .catch(err => res.status(404).json({ success: false }));
 });
 
 module.exports = router;
