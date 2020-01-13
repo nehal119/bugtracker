@@ -1,38 +1,42 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const config = require('config');
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const config = require("config");
+const compression = require("compression");
 
 const app = express();
+
+app.use(compression());
 
 // Bodyparser Middleware
 app.use(express.json());
 
 // DB Config
-const db = config.get('mongoURI');
+const db = config.get("mongoURI");
 
 // Connect to Mongo
-mongoose.connect(db, { 
+mongoose
+  .connect(db, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
   }) // Adding new mongo url parser
-  .then(() => console.log('MongoDB Connected...'))
+  .then(() => console.log("MongoDB Connected..."))
   .catch(err => console.log(err));
 
 // Use Routes
-app.use('/api/items', require('./routes/api/items'));
-app.use('/api/bugs', require('./routes/api/bugs'));
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
+app.use("/api/items", require("./routes/api/items"));
+app.use("/api/bugs", require("./routes/api/bugs"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 // Serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static('client/build'));
+  app.use(express.static("client/build"));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 

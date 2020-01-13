@@ -1,69 +1,69 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 :root {
-	--primary-color: #c5c5c5;
-	--secondary-color: #f4f4f4;
-	--light-color: #c5c5c5;
+  --primary-color: #c5c5c5;
+  --secondary-color: #f4f4f4;
+  --light-color: #c5c5c5;
 }
 
 body {
-	background-color: var(--secondary-color) !important;
-	font-family: 'Raleway', sans-serif;
-	/* height: 100vh; */
-	/* background: #333 url('https://image.ibb.co/n5A2HU/showcase.jpg') no-repeat */
-	/* center center / cover; */
-	/* color: #ccc; */
-	width: 100vw;
-	overflow-x: hidden;
+  background-color: var(--secondary-color) !important;
+  font-family: "Raleway", sans-serif;
+  /* height: 100vh; */
+  /* background: #333 url('https://image.ibb.co/n5A2HU/showcase.jpg') no-repeat */
+  /* center center / cover; */
+  /* color: #ccc; */
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .remove-btn {
-	margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .fade-enter {
-	opacity: 0.01;
+  opacity: 0.01;
 }
 
 .fade-enter-active {
-	opacity: 1;
-	transition: opacity 1000ms ease-in;
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
 }
 
 .fade-exit {
-	opacity: 1;
+  opacity: 1;
 }
 
 .fade-exit-active {
-	opacity: 0.01;
-	transition: opacity 1000ms ease-in;
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
 }
 
 .primary-background {
-	background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 .secondary-background {
-	background-color: var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
 }
 .light-background {
-	background-color: var(--light-color) !important;
+  background-color: var(--light-color) !important;
 }
 .p-3 {
-	padding: 3rem;
+  padding: 3rem;
 }
 .p-2 {
-	padding: 2rem;
+  padding: 2rem;
 }
 .p-1 {
-	padding: 1rem;
+  padding: 1rem;
 }
 .mt-6 {
-	margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 .txt-type > .txt {
-	border-right: 0.2rem solid #777;
+  border-right: 0.2rem solid #777;
 }
 .text-white {
-	color: #f4f4f4;
+  color: #f4f4f4;
 }
